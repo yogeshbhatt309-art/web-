@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coffee House ☕</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 🔐 Login Protection -->
+<script>
+if (localStorage.getItem("loggedIn") !== "true") {
+    window.location.href = "login.html";
+}
+</script>
+
+<header>
+    <h1>☕ Coffee House</h1>
+    <span id="welcomeUser"></span>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#cart">Cart 🛒</a>
+        <button onclick="logout()">Logout</button>
+    </nav>
+</header>
+
+<section id="home" class="hero">
+    <h2>Fresh Coffee, Fresh Mood</h2>
+    <p>Welcome to the best coffee experience ☕</p>
+    <button onclick="scrollToMenu()">Order Now</button>
+</section>
+
+<section id="menu" class="menu">
+    <h2>Our Menu</h2>
+
+    <div class="items">
+        <div class="card">
+            <h3>Espresso</h3>
+            <p>Strong & bold</p>
+            <span>₹120</span>
+            <button onclick="addToCart('Espresso',120)">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <h3>Cappuccino</h3>
+            <p>Perfect milk coffee</p>
+            <span>₹150</span>
+            <button onclick="addToCart('Cappuccino',150)">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <h3>Latte</h3>
+            <p>Soft & creamy</p>
+            <span>₹170</span>
+            <button onclick="addToCart('Latte',170)">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <h3>Mocha</h3>
+            <p>Coffee + chocolate</p>
+            <span>₹180</span>
+            <button onclick="addToCart('Mocha',180)">Add to Cart</button>
+        </div>
+    </div>
+</section>
+
+<section id="cart" class="cart">
+    <h2>Your Cart 🛒</h2>
+    <ul id="cartItems"></ul>
+    <h3 id="total">Total: ₹0</h3>
+    <button onclick="checkout()">Place Order</button>
+</section>
+
+<footer>
+    <p>© 2025 Coffee House | Made by Yogesh Bhatt ☕</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
